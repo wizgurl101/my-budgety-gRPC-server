@@ -1,0 +1,12 @@
+syntax = "proto3"
+
+service Category {
+  rpc GetCategory(GetCategoryRequest) returns (GetCategoryResponse) {}
+}
+
+message GetCategoryRequest {
+  string id = 1;
+  string userId = 2;
+  string name = 3;
+}
+
