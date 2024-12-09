@@ -5,9 +5,9 @@ import (
 	"log"
 	"net"
 
-	pb "path/to/your/generated/helloworld"
-
 	"google.golang.org/grpc"
+
+	pb "my-budgety-gRPC-server/protos"
 )
 
 const (
