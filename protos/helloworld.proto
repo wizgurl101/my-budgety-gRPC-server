@@ -1,5 +1,7 @@
 syntax="proto3";
 
+option go_package = "my-budgety-gRPC-server/protos/helloworld";
+
 package helloworld;
 
 service Greeter {

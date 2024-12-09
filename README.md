@@ -14,8 +14,14 @@ Ensure choco is install and powershell terminal is in adminstrator mode
     choco install protoc
 ```
 
-### Use protoc compiler
+### Use protoc compiler to complie the Go files for the proto files
 
 ```bash
     protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out= --go-grpc_opt=paths=source_relative proto/helloworld.proto
+```
+
+### Run server
+
+```bash
+    go run .
 ```
