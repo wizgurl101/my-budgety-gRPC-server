@@ -2,6 +2,18 @@
 
 API endpoint for mobile app of My Budgety to consume. Also serve as a repo to learn gRPC framework in Go.
 
+## Dev Setup
+
+### Install Protocol Buffers Compiler
+
+On Window:
+
+Ensure choco is install and powershell terminal is in adminstrator mode
+
+```bash
+    choco install protoc
+```
+
 ### Use protoc compiler
 
 ```bash
