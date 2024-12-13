@@ -1,0 +1,17 @@
+syntax="proto3";
+
+option go_package = "my-budgety-gRPC-server/expanse/protos/expanse";
+
+package expanse;
+
+service ExpanseService {
+    rpc GetExpansesAmountInCurrentMonth(GetExpansesAmountInCurrentMonthRequest) returns (GetExpansesAmountInCurrentMonthResponse) {}
+}
+
+message GetExpansesAmountInCurrentMonthRequest {
+    string userId = 1;
+}
+
+message GetExpansesAmountInCurrentMonthResponse {
+    float amount = 1;
+}

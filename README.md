@@ -17,7 +17,13 @@ Ensure choco is install and powershell terminal is in adminstrator mode
 ### Use protoc compiler to complie the Go files for the proto files
 
 ```bash
-    protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out= --go-grpc_opt=paths=source_relative proto/helloworld.proto
+    protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out= --go-grpc_opt=paths=source_relative expanse/protos/expanse.proto
+```
+
+### Login in using google auth
+
+```bash
+    gcloud auth application-default login
 ```
 
 ### Run server
