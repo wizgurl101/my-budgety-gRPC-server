@@ -7,21 +7,19 @@ import (
 
 	"google.golang.org/grpc"
 
-	pb "my-budgety-gRPC-server/protos"
+	expanse_pb "my-budgety-gRPC-server/expanse/protos"
 )
 
 const (
 	port = ":50051"
 )
 
-// server is used to implement helloworld.GreeterServer.
 type server struct {
-	pb.UnimplementedGreeterServer
+	expanse_pb.ExpanseServiceServer
 }
 
-// SayHello implements helloworld.GreeterServer
-func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
-	return &pb.HelloReply{Message: "Hello World"}, nil
+func (s *server) GetExpansesAmountInCurrentMonth(ctx context.Context, in *expanse_pb.GetExpansesAmountInCurrentMonthRequest) (*expanse_pb.GetExpansesAmountInCurrentMonthResponse, error) {
+	return &expanse_pb.GetExpansesAmountInCurrentMonthResponse{Amount: 100}, nil
 }
 
 func main() {
@@ -30,7 +28,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 	s := grpc.NewServer()
-	pb.RegisterGreeterServer(s, &server{})
+	expanse_pb.RegisterExpanseServiceServer(s, &server{})
 	log.Printf("server listening at %v", lis.Addr())
 	if err := s.Serve(lis); err != nil {
 		log.Fatalf("failed to serve: %v", err)
