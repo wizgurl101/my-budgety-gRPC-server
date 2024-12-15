@@ -19,12 +19,11 @@ func GetAllExpanse() {
 		log.Fatalf("failed to create bigquery client: %v", err)
 	}
 
-	query_str := `
-	    SELECT SUM(amount) ` +
-		`FROM ` + env_variables.ProjectId + `.` + env_variables.ProjectName + `.expanse ` +
-		`WHERE date >= @firstOfMonthDate
-		AND date <= @endOfMonthDate
-	`
+	query_str :=
+		`SELECT SUM(amount) ` +
+			`FROM ` + env_variables.ProjectId + `.` + env_variables.ProjectName + `.expanse ` +
+			`WHERE date >= @firstOfMonthDate
+		AND date <= @endOfMonthDate`
 	q := client.Query(query_str)
 
 	q.Parameters = []bigquery.QueryParameter{
