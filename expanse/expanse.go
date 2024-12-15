@@ -2,7 +2,6 @@ package expanse
 
 import (
 	"context"
-	"fmt"
 	"log"
 
 	bigquery "cloud.google.com/go/bigquery"
@@ -11,7 +10,7 @@ import (
 	envmanager "my-budgety-gRPC-server/envmanager"
 )
 
-func GetAllExpanse() {
+func GetAllExpanse() float32 {
 	ctx := context.Background()
 	env_variables := envmanager.GetEnvVariables()
 	client, err := bigquery.NewClient(ctx, env_variables.ProjectId)
@@ -36,6 +35,8 @@ func GetAllExpanse() {
 		log.Fatalf("failed to read query results: %v", err)
 	}
 
+	var amount float64
+
 	for {
 		var values []bigquery.Value
 		err := it.Next(&values)
@@ -47,6 +48,8 @@ func GetAllExpanse() {
 			break
 		}
 
-		fmt.Println(values)
+		amount = values[0].(float64)
 	}
+
+	return float32(amount)
 }
