@@ -19,7 +19,9 @@ type server struct {
 	expanse_pb.ExpanseServiceServer
 }
 
-func (s *server) GetExpansesAmountInCurrentMonth(ctx context.Context, in *expanse_pb.GetExpansesAmountInCurrentMonthRequest) (*expanse_pb.GetExpansesAmountInCurrentMonthResponse, error) {
+func (s *server) GetExpansesAmountInCurrentMonth
+(ctx context.Context, in *expanse_pb.GetExpansesAmountInCurrentMonthRequest) 
+(*expanse_pb.GetExpansesAmountInCurrentMonthResponse, error) {
 	expanse_amount := expanse.GetAllExpanse()
 	return &expanse_pb.GetExpansesAmountInCurrentMonthResponse{Amount: expanse_amount}, nil
 }

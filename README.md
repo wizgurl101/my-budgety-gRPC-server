@@ -20,11 +20,19 @@ Ensure choco is install and powershell terminal is in adminstrator mode
     protoc --go_out=. --go_opt=paths=source_relative --go-grpc_out= --go-grpc_opt=paths=source_relative expanse/protos/expanse.proto
 ```
 
-### Login in using google auth
+### Login in using google auth to create a ADC file locally
 
 ```bash
     gcloud auth application-default login
 ```
+
+### Create a .env file in the project root folder
+
+In the .env file have the following variables:
+
+- PROJECT_ID
+- PROJECT_NAME
+- PORT
 
 ### Run server
 
