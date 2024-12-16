@@ -39,3 +39,42 @@ In the .env file have the following variables:
 ```bash
     go run .
 ```
+
+## How to run test locally
+
+```bash
+    go test ./tests/
+```
+
+## If there are problem with debugging tests
+
+Open the launch.json file by going to Run > Add Configuration...
+Edit the json file to include the following:
+
+```
+  "configurations": [
+    {
+      "name": "Launch Package",
+      "type": "go",
+      "request": "launch",
+      "mode": "auto",
+      "program": "${workspaceRoot}",
+      "env": {},
+      "args": [],
+      "showLog": true
+    },
+    {
+      "name": "Test Current File",
+      "type": "go",
+      "request": "launch",
+      "mode": "test",
+      "port": 2345,
+      "host": "127.0.0.1",
+      "program": "${file}",
+      "env": {},
+      "args": [],
+      "showLog": true
+    }
+  ]
+}
+```
