@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Run go fmt on all Go files
+echo "Running go fmt..."
+go fmt ./...
+
+# Check if there are any changes after running go fmt
+if [ -n "$(git diff --name-only)" ]; then
+  echo "Some files were not formatted. Please stage the changes and commit again."
+  exit 1
+fi
+
+echo "All files are properly formatted."

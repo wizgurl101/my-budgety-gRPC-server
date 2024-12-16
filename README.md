@@ -1,4 +1,4 @@
-# my-budgety-gRPC
+# My Budgety gRPC Server
 
 API endpoint for mobile app of My Budgety to consume. Also serve as a repo to learn gRPC framework in Go.
 
@@ -17,6 +17,11 @@ In the .env file have the following variables:
 - PROJECT_ID
 - PROJECT_NAME
 - PORT
+
+### Setup the Pre-Commit Hook
+
+In the .git folder, remove the .sample extension from pre-commit file and copy the code in pre-commit.sample into it.
+If the .git folder isn't visible, then ensure hidden folder can be view (Google it if you don't know how on your machine XD).
 
 ### Run server
 
