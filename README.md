@@ -46,7 +46,7 @@ In the .env file have the following variables:
     go test ./tests/
 ```
 
-## If there are problem with debugging tests
+## If there are problem with debugging tests in VS Code IDE
 
 Open the launch.json file by going to Run > Add Configuration...
 Edit the json file to include the following:
