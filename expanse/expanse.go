@@ -8,6 +8,7 @@ import (
 	"google.golang.org/api/iterator"
 
 	envmanager "my-budgety-gRPC-server/envmanager"
+	utils "my-budgety-gRPC-server/utils"
 )
 
 func GetAllExpanse() float32 {
@@ -22,12 +23,12 @@ func GetAllExpanse() float32 {
 		`SELECT SUM(amount) ` +
 			`FROM ` + env_variables.ProjectId + `.` + env_variables.ProjectName + `.expanse ` +
 			`WHERE date >= @firstOfMonthDate
-		AND date <= @endOfMonthDate`
+		AND date < @firstOfNextMonthDate`
 	q := client.Query(query_str)
 
 	q.Parameters = []bigquery.QueryParameter{
-		{Name: "firstOfMonthDate", Value: "2024-12-01"},
-		{Name: "endOfMonthDate", Value: "2024-12-31"},
+		{Name: "firstOfMonthDate", Value: utils.GetFirstDateOfCurrentMonth()},
+		{Name: "firstOfNextMonthDate", Value: utils.GetFirstDateOfNextMonth()},
 	}
 
 	it, err := q.Read(ctx)
