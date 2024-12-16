@@ -42,12 +42,4 @@ func TestGetFirstDateOfCurrentMonth(t *testing.T) {
 			t.Errorf("expected %s but got %s", expected, actual)
 		}
 	})
-
-	t.Run("failing test", func(t *testing.T) {
-		expected := true
-		actual := false
-		if actual != expected {
-			t.Errorf("expected %s but got %s", expected, actual)
-		}
-	})
 }
